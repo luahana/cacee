@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/common/Header';
-import { openMenu, closeMenu } from '../../modules/global';
+import { openMenu, closeMenu } from '../../modules/bag';
 
 const HeaderContainer = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(({ user }) => ({ user: user }));
-  const { isMenuOpen } = useSelector(({ global }) => ({
-    isMenuOpen: global.isMenuOpen,
+  const { isMenuOpen } = useSelector(({ bag: { isMenuOpen } }) => ({
+    isMenuOpen,
   }));
 
   const onMenuClick = () => {

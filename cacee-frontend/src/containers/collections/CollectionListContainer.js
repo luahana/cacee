@@ -20,7 +20,7 @@ const CollectionListContainer = ({ match, location }) => {
   const [newCollections, setNewCollections] = useState([]);
 
   useEffect(() => {
-    dispatch(listCollections({ category }));
+    dispatch(listCollections(category));
     setSortBy('all');
     setColorBy('all');
     return () => {

@@ -12,10 +12,9 @@ const [
 ] = createRequestActionTypes('collections/LIST_COLLECTIONS');
 const UNLOAD_COLLECTIONS = 'collections/UNLOAD_COLLECTIONS';
 
-export const listCollections = createAction(
-  LIST_COLLECTIONS,
-  ({ category }) => ({ category }),
-);
+export const listCollections = createAction(LIST_COLLECTIONS, category => ({
+  category,
+}));
 export const unloadCollections = createAction(UNLOAD_COLLECTIONS);
 
 const listCollectionsSaga = createRequestSaga(

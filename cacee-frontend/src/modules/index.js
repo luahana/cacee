@@ -5,7 +5,7 @@ import loading from './loading';
 import user, { userSaga } from './user';
 import collection, { collectionSaga } from './collection';
 import collections, { collectionsSaga } from './collections';
-import global from './global';
+import bag from './bag';
 
 const rootReducer = combineReducers({
   auth,
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   user,
   collections,
   collection,
-  global,
+  bag,
 });
 
 export function* rootSaga() {

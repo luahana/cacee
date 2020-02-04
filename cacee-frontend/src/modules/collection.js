@@ -14,7 +14,7 @@ const UNLOAD_COLLECTION = 'collection/UNLOAD_COLLECTION';
 
 export const getCollection = createAction(
   GET_COLLECTION,
-  ({ category, collectionId }) => ({ category, collectionId }),
+  (category, collectionId) => ({ category, collectionId }),
 );
 export const unloadCollection = createAction(UNLOAD_COLLECTION);
 

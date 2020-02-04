@@ -60,7 +60,14 @@ const EmptyBagBlock = styled.div`
   padding-left: 2rem;
 `;
 
-const BagMenu = ({ isBagEmpty, Collections, onCloseMenu, isOpen }) => {
+const BagMenu = ({
+  isBagEmpty,
+  Collections,
+  onCloseMenu,
+  isOpen,
+  bagItems,
+}) => {
+  console.log(bagItems);
   return (
     <>
       <OverlayBlock isOpen={isOpen}>
@@ -79,7 +86,12 @@ const BagMenu = ({ isBagEmpty, Collections, onCloseMenu, isOpen }) => {
             {isBagEmpty ? (
               <EmptyBagBlock>Your Bag is Empty</EmptyBagBlock>
             ) : (
-              <CollectionPreview Collections={Collections}></CollectionPreview>
+              bagItems.map(bagItem => (
+                <CollectionPreview
+                  collection={bagItem}
+                  key={bagItem._id}
+                ></CollectionPreview>
+              ))
             )}
           </BagBlock>
         </BagMenuBlock>

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ViewCollection from '../../components/collection/ViewCollection';
 import { getCollection, unloadCollection } from '../../modules/collection';
-import { openMenu } from '../../modules/global';
+import { openMenu, addItem } from '../../modules/bag';
 
 const CollectionViewContainer = ({ match, history }) => {
   const { collectionId, category } = match.params;
@@ -21,7 +21,7 @@ const CollectionViewContainer = ({ match, history }) => {
   );
 
   useEffect(() => {
-    dispatch(getCollection({ category, collectionId }));
+    dispatch(getCollection(category, collectionId));
 
     return () => {
       dispatch(unloadCollection());
@@ -40,22 +40,33 @@ const CollectionViewContainer = ({ match, history }) => {
     setSelectedSize(size);
   };
 
+  const addToBag = () => {
+    setError(null);
+    dispatch(
+      addItem({
+        ...collection,
+        selectedColor: selectedColor,
+        selectedSize: selectedSize,
+      }),
+    );
+    dispatch(openMenu());
+  };
+
   const onAddToBag = () => {
     if (category === 'rings') {
       if (!selectedColor) {
         setError('Please select your color');
       } else if (!selectedSize) {
         setError('Please select your size');
+      } else {
+        addToBag();
       }
     } else {
       if (!selectedColor) {
         setError('Please select your color');
+      } else {
+        addToBag();
       }
-    }
-    if ((category !== 'rings' && selectedColor) || selectedColor) {
-      setError(null);
-      console.log('onAddToBag');
-      dispatch(openMenu());
     }
   };
 

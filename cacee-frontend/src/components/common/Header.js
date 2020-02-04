@@ -129,7 +129,7 @@ const Header = ({ user, isMenuOpen, onMenuClick, onCloseMenu }) => {
                 <Link to="/collections/rings">RINGS</Link>
                 <Link to="/collections/earrings">EARRINGS</Link>
                 <Link to="/collections/necklaces">NECKLACES</Link>
-                <Link to="/collections/bracelets">BRACELETsssS</Link>
+                <Link to="/collections/bracelets">BRACELETS</Link>
               </div>
             </OptionDropDown>
             <OptionLink to="/about">ABOUT</OptionLink>
