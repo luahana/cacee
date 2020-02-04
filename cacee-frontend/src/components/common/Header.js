@@ -116,7 +116,7 @@ const Header = ({ user, isMenuOpen, onMenuClick, onCloseMenu }) => {
       <HeaderBlock>
         <Wrapper>
           <LogoBlock to="/">
-            <div className="logo">CACEE test</div>
+            <div className="logo">CACEE</div>
           </LogoBlock>
           <OptionsBlockRight>
             <OptionDropDown>
