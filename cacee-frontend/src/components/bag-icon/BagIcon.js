@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
+import { useSelector } from 'react-redux';
 
 const CartIconBlock = styled.div`
   height: 1rem;
@@ -18,15 +19,20 @@ const ItemCount = styled.span`
   color: red;
 `;
 
-const CartIcon = ({ onClick }) => {
+const BagIcon = ({ onClick }) => {
+  const { bagItems } = useSelector(({ bag }) => ({
+    bagItems: bag.bagItems,
+  }));
   return (
     <>
       <CartIconBlock onClick={() => onClick()}>
         <i className="fa fa-shopping-bag fa-lg"></i>
-        <ItemCount>0</ItemCount>
+        <ItemCount>
+          {bagItems.reduce((acc, { quantity }) => acc + quantity, 0)}
+        </ItemCount>
       </CartIconBlock>
     </>
   );
 };
 
-export default CartIcon;
+export default BagIcon;

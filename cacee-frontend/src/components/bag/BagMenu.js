@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
 import CollectionPreview from './CollectionPreview';
+import BagIcon from '../bag-icon/BagIcon';
 
 const OverlayBlock = styled.div`
   position: absolute;
@@ -61,13 +62,13 @@ const EmptyBagBlock = styled.div`
 `;
 
 const BagMenu = ({
-  isBagEmpty,
-  Collections,
   onCloseMenu,
   isOpen,
   bagItems,
+  onRemoveItemClick,
+  onChangeQuantityClick,
+  toggleMenu,
 }) => {
-  console.log(bagItems);
   return (
     <>
       <OverlayBlock isOpen={isOpen}>
@@ -79,17 +80,22 @@ const BagMenu = ({
             </Close>
             <Title>YOUR BAG</Title>
             <Bag>
-              <i className="fa fa-shopping-bag fa-lg"></i>
+              <BagIcon onClick={toggleMenu} />
             </Bag>
           </HeaderBlock>
           <BagBlock>
-            {isBagEmpty ? (
+            {bagItems.length === 0 ? (
               <EmptyBagBlock>Your Bag is Empty</EmptyBagBlock>
             ) : (
-              bagItems.map(bagItem => (
+              bagItems.map((bagItem, index) => (
                 <CollectionPreview
                   collection={bagItem}
-                  key={bagItem._id}
+                  key={
+                    bagItem._id + bagItem.selectedSize + bagItem.selectedColor
+                  }
+                  index={index}
+                  onRemoveItemClick={onRemoveItemClick}
+                  onChangeQuantityClick={onChangeQuantityClick}
                 ></CollectionPreview>
               ))
             )}

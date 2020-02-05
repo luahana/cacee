@@ -14,7 +14,10 @@ const CollectionImage = styled.img`
   width: 100%;
 `;
 
-const CollectionDescBlock = styled.div``;
+const CollectionDescBlock = styled.div`
+  width: 100%;
+  padding: 1rem;
+`;
 
 const DescHeader = styled.div`
   display: flex;
@@ -23,7 +26,9 @@ const DescHeader = styled.div`
 
 const Name = styled.div``;
 
-const Close = styled.div``;
+const Close = styled.div`
+  cursor: pointer;
+`;
 
 const DescBody = styled.div``;
 
@@ -31,11 +36,27 @@ const DescFooter = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+const QuantityBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+`;
+
 const Quantity = styled.div``;
+
+const QuantityBtn = styled.div`
+  cursor: pointer;
+`;
 
 const Price = styled.div``;
 
-const CollectionPreview = ({ collection }) => {
+const CollectionPreview = ({
+  collection,
+  index,
+  onRemoveItemClick,
+  onChangeQuantityClick,
+}) => {
   const {
     name,
     selectedSize,
@@ -55,15 +76,23 @@ const CollectionPreview = ({ collection }) => {
         <CollectionDescBlock>
           <DescHeader>
             <Name>{name}</Name>
-            <Close>X</Close>
+            <Close onClick={() => onRemoveItemClick(index)}>X</Close>
           </DescHeader>
           <DescBody>
             {category === 'rings' ? <span> Size: {selectedSize}, </span> : null}
             Color: {selectedColor}
           </DescBody>
           <DescFooter>
-            <Quantity>Qty: {quantity}</Quantity>
-            <Price>${prices[0]}</Price>
+            <QuantityBlock>
+              <QuantityBtn onClick={() => onChangeQuantityClick(index, -1)}>
+                -
+              </QuantityBtn>
+              <Quantity>{quantity}</Quantity>
+              <QuantityBtn onClick={() => onChangeQuantityClick(index, 1)}>
+                +
+              </QuantityBtn>
+            </QuantityBlock>
+            <Price>${prices[0] * quantity}</Price>
           </DescFooter>
         </CollectionDescBlock>
       </CollectionPreviewBlock>

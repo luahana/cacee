@@ -4,8 +4,7 @@ import Responsive from './Responsive';
 import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import BagIcon from '../bag-icon/BagIcon';
-import BagMenu from '../bag/BagMenu';
-import BagMenuContainer from '../../containers/BagMenu/BagMenuContainer';
+import BagMenuContainer from '../../containers/bagMenu/BagMenuContainer';
 
 const HeaderBlock = styled.div`
   position: fixed;

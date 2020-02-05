@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from '../../components/common/Header';
-import { openMenu, closeMenu } from '../../modules/bag';
+import { openMenu, closeMenu, toggleMenu } from '../../modules/bag';
 
 const HeaderContainer = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const HeaderContainer = () => {
   }));
 
   const onMenuClick = () => {
-    dispatch(openMenu());
+    dispatch(toggleMenu());
   };
 
   const onCloseMenu = () => {
