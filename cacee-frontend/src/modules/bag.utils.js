@@ -46,3 +46,14 @@ export const changeQuantityOfItem = (bagItems, val) => {
   }
   return bagItems;
 };
+
+export const calculateTotalPriceOfItems = bagItems => {
+  return bagItems.reduce(
+    (acc, { prices, quantity }) => acc + prices[0] * quantity,
+    0,
+  );
+};
+
+export const countTotalItem = bagItems => {
+  return bagItems.reduce((acc, { quantity }) => acc + quantity, 0);
+};

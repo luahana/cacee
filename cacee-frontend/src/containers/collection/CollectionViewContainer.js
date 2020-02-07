@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ViewCollection from '../../components/collection/ViewCollection';
 import { getCollection, unloadCollection } from '../../modules/collection';
-import { openMenu, addItem } from '../../modules/bag';
+import { openMenu, addItem, countItem } from '../../modules/bag';
 
 const CollectionViewContainer = ({ match, history }) => {
   const { collectionId, category } = match.params;
@@ -49,6 +49,7 @@ const CollectionViewContainer = ({ match, history }) => {
         selectedSize: selectedSize,
       }),
     );
+    dispatch(countItem());
     dispatch(openMenu());
   };
 

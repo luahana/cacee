@@ -4,10 +4,16 @@ import styled from 'styled-components';
 const CollectionPreviewBlock = styled.div`
   display: flex;
   width: 100%;
+  padding: 1rem 0rem;
+  border-bottom: 1px solid #dddddd;
 `;
 
 const CollectionImageBlock = styled.div`
+  display: flex;
+  align-items: center;
   width: 30%;
+  height: 6rem;
+  border: 1px solid #dddddd;
 `;
 
 const CollectionImage = styled.img`
@@ -15,13 +21,15 @@ const CollectionImage = styled.img`
 `;
 
 const CollectionDescBlock = styled.div`
+  position: relative;
   width: 100%;
-  padding: 1rem;
+  padding-left: 1rem;
 `;
 
 const DescHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  width: auto;
 `;
 
 const Name = styled.div``;
@@ -30,7 +38,10 @@ const Close = styled.div`
   cursor: pointer;
 `;
 
-const DescBody = styled.div``;
+const DescBody = styled.div`
+  padding-top: 0.5rem;
+  min-height: 3.5rem;
+`;
 
 const DescFooter = styled.div`
   display: flex;

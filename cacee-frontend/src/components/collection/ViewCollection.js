@@ -81,8 +81,6 @@ const ViewCollection = ({
   onColorSelect,
   onSizeSelect,
   onAddToBag,
-  selectedColor,
-  selectedSize,
   error,
 }) => {
   if (loading || !collection) {

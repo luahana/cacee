@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Responsive from './Responsive';
 import { Link } from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
-import BagIcon from '../bag-icon/BagIcon';
+import BagIconContainer from '../../containers/bagIcon/BagIconContainer';
 import BagMenuContainer from '../../containers/bagMenu/BagMenuContainer';
 
 const HeaderBlock = styled.div`
@@ -29,7 +29,7 @@ const Wrapper = styled(Responsive)`
 `;
 
 const LogoBlock = styled(Link)`
-  width: 20%;
+  width: auto;
 `;
 
 const OptionsBlockLeft = styled.div`
@@ -115,7 +115,7 @@ const Header = ({ user, isMenuOpen, onMenuClick, onCloseMenu }) => {
       <HeaderBlock>
         <Wrapper>
           <LogoBlock to="/">
-            <div className="logo">CACEE</div>
+            <span className="logo">CACEE</span>
           </LogoBlock>
           <OptionsBlockRight>
             <OptionDropDown>
@@ -143,7 +143,7 @@ const Header = ({ user, isMenuOpen, onMenuClick, onCloseMenu }) => {
               <i className="fa fa-search fa-lg"></i>
             </OptionLink>
             <OptionImg>
-              <BagIcon onClick={onMenuClick} />
+              <BagIconContainer onClick={onMenuClick} />
             </OptionImg>
           </OptionsBlockRight>
           <BagMenuContainer isMenuOpen={isMenuOpen} onCloseMenu={onCloseMenu} />

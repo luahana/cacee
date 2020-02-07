@@ -2,7 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import 'font-awesome/css/font-awesome.min.css';
 import CollectionPreview from './CollectionPreview';
-import BagIcon from '../bag-icon/BagIcon';
+import BagIconContainer from '../../containers/bagIcon/BagIconContainer';
+import Button from '../common/Button';
 
 const OverlayBlock = styled.div`
   position: absolute;
@@ -39,8 +40,11 @@ const BagMenuBlock = styled.div`
 const HeaderBlock = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
   width: 100%;
+  height: 10vh;
 `;
 
 const Title = styled.div`
@@ -53,13 +57,39 @@ const Close = styled.div`
 
 const Bag = styled.div``;
 
-const BagBlock = styled.div`
-  padding-top: 2rem;
-`;
+const BagBlock = styled.div``;
 
 const EmptyBagBlock = styled.div`
   padding-left: 2rem;
 `;
+
+const BagWithItemsBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90vh;
+`;
+
+const ItemsBlock = styled.div`
+  padding: 0rem 2rem;
+  position: relative;
+  overflow-y: scroll;
+`;
+
+const FooterBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: #eeeeee;
+  padding: 1rem 2rem;
+`;
+
+const FooterLine = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0.25rem 0rem;
+`;
+
+const FooterLineContent = styled.div``;
 
 const BagMenu = ({
   onCloseMenu,
@@ -68,6 +98,7 @@ const BagMenu = ({
   onRemoveItemClick,
   onChangeQuantityClick,
   toggleMenu,
+  totalPrice,
 }) => {
   return (
     <>
@@ -80,24 +111,41 @@ const BagMenu = ({
             </Close>
             <Title>YOUR BAG</Title>
             <Bag>
-              <BagIcon onClick={toggleMenu} />
+              <BagIconContainer onClick={toggleMenu} />
             </Bag>
           </HeaderBlock>
           <BagBlock>
             {bagItems.length === 0 ? (
               <EmptyBagBlock>Your Bag is Empty</EmptyBagBlock>
             ) : (
-              bagItems.map((bagItem, index) => (
-                <CollectionPreview
-                  collection={bagItem}
-                  key={
-                    bagItem._id + bagItem.selectedSize + bagItem.selectedColor
-                  }
-                  index={index}
-                  onRemoveItemClick={onRemoveItemClick}
-                  onChangeQuantityClick={onChangeQuantityClick}
-                ></CollectionPreview>
-              ))
+              <BagWithItemsBlock>
+                <ItemsBlock>
+                  {bagItems.map((bagItem, index) => (
+                    <CollectionPreview
+                      collection={bagItem}
+                      key={
+                        bagItem._id +
+                        bagItem.selectedSize +
+                        bagItem.selectedColor
+                      }
+                      index={index}
+                      onRemoveItemClick={onRemoveItemClick}
+                      onChangeQuantityClick={onChangeQuantityClick}
+                    ></CollectionPreview>
+                  ))}
+                </ItemsBlock>
+                <FooterBlock>
+                  <FooterLine>
+                    <FooterLineContent>SHIPPING</FooterLineContent>
+                    <FooterLineContent>$10</FooterLineContent>
+                  </FooterLine>
+                  <FooterLine>
+                    <FooterLineContent>SUBTOTAL</FooterLineContent>
+                    <FooterLineContent>${totalPrice}</FooterLineContent>
+                  </FooterLine>
+                  <Button checkoutBtn>CONTINUE TO CHECKOUT</Button>
+                </FooterBlock>
+              </BagWithItemsBlock>
             )}
           </BagBlock>
         </BagMenuBlock>
