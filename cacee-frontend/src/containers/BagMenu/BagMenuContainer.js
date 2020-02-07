@@ -31,6 +31,7 @@ const BagMenuContainer = ({ isMenuOpen, onCloseMenu }) => {
 
   const onRemoveItemClick = index => {
     dispatch(removeItem(index));
+    dispatch(countItem());
   };
 
   const onChangeQuantityClick = (index, value) => {
