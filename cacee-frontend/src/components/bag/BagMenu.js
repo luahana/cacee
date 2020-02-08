@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import CollectionPreview from './CollectionPreview';
 import BagIconContainer from '../../containers/bagIcon/BagIconContainer';
 import Button from '../common/Button';
+import { Link } from 'react-router-dom';
 
 const OverlayBlock = styled.div`
   position: absolute;
@@ -60,7 +61,7 @@ const Bag = styled.div``;
 const BagBlock = styled.div``;
 
 const EmptyBagBlock = styled.div`
-  padding-left: 2rem;
+  padding: 2rem;
 `;
 
 const BagWithItemsBlock = styled.div`
@@ -116,7 +117,12 @@ const BagMenu = ({
           </HeaderBlock>
           <BagBlock>
             {bagItems.length === 0 ? (
-              <EmptyBagBlock>Your Bag is Empty</EmptyBagBlock>
+              <EmptyBagBlock>
+                <div>Your Bag is Empty</div>
+                <Link to={'/collections/all'} onClick={() => toggleMenu()}>
+                  SHOP NOW
+                </Link>
+              </EmptyBagBlock>
             ) : (
               <BagWithItemsBlock>
                 <ItemsBlock>

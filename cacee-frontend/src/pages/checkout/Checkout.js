@@ -1,9 +1,10 @@
 import React from 'react';
+import CheckoutTemplate from '../../components/checkout/CheckoutTemplate';
 
 const CheckoutPage = () => {
   return (
     <>
-      <div>CheckoutPage</div>
+      <CheckoutTemplate />
     </>
   );
 };

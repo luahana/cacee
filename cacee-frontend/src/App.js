@@ -10,12 +10,12 @@ import FAQPage from './pages/info/FAQ';
 import RingSizerPage from './pages/info/RingSizer';
 import ShippingReturnsPage from './pages/info/ShippingReturns';
 import HomePage from './pages/home/Home';
-import CheckoutPage from './pages/account/Checkout';
 import CollectionViewPage from './pages/collection/Collection';
 // import MyaccountPage from './pages/account/Myaccount';
 import EditAccountPage from './pages/account/EditAccount';
 import OrderSummaryPage from './pages/account/OrderSummary';
 import AddressBookPage from './pages/account/AddressBook';
+import CheckoutPage from './pages/checkout/Checkout';
 
 import HeaderContainer from './containers/common/HeaderContainer';
 import FooterContainer from './containers/common/FooterContainer';
