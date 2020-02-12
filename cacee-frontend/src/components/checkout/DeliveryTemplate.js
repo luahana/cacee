@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import AddressFormContainer from '../../containers/common/AddressFormContainer';
-import { Elements } from 'react-stripe-elements';
-import InjectedCheckoutForm from './CheckoutForm';
 
 const TemplateBlock = styled.div`
   width: 45%;
@@ -18,17 +15,14 @@ const HeaderBlock = styled.div`
   border-bottom: solid 1px black;
 `;
 
-const CheckoutTemplate = () => {
+const DeliveryTemplate = () => {
   return (
     <>
       <TemplateBlock>
-        <HeaderBlock>03 PAYMENT</HeaderBlock>
-        <Elements>
-          <InjectedCheckoutForm />
-        </Elements>
+        <HeaderBlock>02 DELIVERY</HeaderBlock>
       </TemplateBlock>
     </>
   );
 };
 
-export default CheckoutTemplate;
+export default DeliveryTemplate;

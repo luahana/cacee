@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+
 import LoginPage from './pages/account/Login';
 import RegisterPage from './pages/account/Register';
 import AddCollectionPage from './pages/admin/AddCollection';

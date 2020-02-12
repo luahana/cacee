@@ -90,6 +90,10 @@ const FooterLine = styled.div`
   margin: 0.25rem 0rem;
 `;
 
+const LinkWithMarginTop = styled(Link)`
+  margin-top: 1rem;
+`;
+
 const FooterLineContent = styled.div``;
 
 const BagMenu = ({
@@ -149,7 +153,9 @@ const BagMenu = ({
                     <FooterLineContent>SUBTOTAL</FooterLineContent>
                     <FooterLineContent>${totalPrice}</FooterLineContent>
                   </FooterLine>
-                  <Button checkoutBtn>CONTINUE TO CHECKOUT</Button>
+                  <LinkWithMarginTop to="/checkout" onClick={toggleMenu}>
+                    <Button checkoutBtn>CONTINUE TO CHECKOUT</Button>
+                  </LinkWithMarginTop>
                 </FooterBlock>
               </BagWithItemsBlock>
             )}

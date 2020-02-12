@@ -7,6 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { StripeProvider } from 'react-stripe-elements';
+
 import createSagaMiddleware from 'redux-saga';
 import rootReducer, { rootSaga } from './modules';
 import { tempSetUser, check } from './modules/user';
@@ -34,11 +36,13 @@ sagaMiddleware.run(rootSaga);
 loadUser();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+  <StripeProvider apiKey={process.env.REACT_APP_STRIPE_TEST_PUBLIC_KEY}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </StripeProvider>,
   document.getElementById('root'),
 );
 

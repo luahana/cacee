@@ -6,6 +6,7 @@ import user, { userSaga } from './user';
 import collection, { collectionSaga } from './collection';
 import collections, { collectionsSaga } from './collections';
 import bag from './bag';
+import payment, { paymentSaga } from './payment';
 
 const rootReducer = combineReducers({
   auth,
@@ -14,10 +15,17 @@ const rootReducer = combineReducers({
   collections,
   collection,
   bag,
+  payment,
 });
 
 export function* rootSaga() {
-  yield all([authSaga(), userSaga(), collectionsSaga(), collectionSaga()]);
+  yield all([
+    authSaga(),
+    userSaga(),
+    collectionsSaga(),
+    collectionSaga(),
+    paymentSaga(),
+  ]);
 }
 
 export default rootReducer;

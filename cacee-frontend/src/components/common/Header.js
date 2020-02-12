@@ -118,6 +118,7 @@ const Header = ({ user, isMenuOpen, onMenuClick, onCloseMenu }) => {
             <span className="logo">CACEE</span>
           </LogoBlock>
           <OptionsBlockRight>
+            <OptionLink to="/addcollection">Add Collection</OptionLink>
             <OptionDropDown>
               <Link className="dropbtn" to="/collections/all">
                 SHOP <i className="fa fa-caret-down fa-sm"></i>

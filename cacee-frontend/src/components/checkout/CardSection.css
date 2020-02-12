@@ -1,0 +1,23 @@
+.cardNumberElement {
+  border: solid 1px black;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.cardExpiryElement {
+  border: solid 1px black;
+  width: 50%;
+  padding: 1rem;
+}
+
+.cardCvcElement {
+  border: solid 1px black;
+  width: 50%;
+  padding: 1rem;
+}
+
+.class-block {
+  display: flex;
+  margin-top: 1rem;
+}

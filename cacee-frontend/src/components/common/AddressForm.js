@@ -9,6 +9,16 @@ const textMap = {
   billing: 'Billing Address',
 };
 
+const InputBlock = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`;
+
+const SpaceBlock = styled.div`
+  width: 3%;
+`;
+
 const AddressForm = ({ type, address, onChange }) => {
   const text = textMap[type];
   console.log('address');
@@ -21,6 +31,7 @@ const AddressForm = ({ type, address, onChange }) => {
         placeholder="First Name"
         onChange={onChange}
         required="true"
+        fullWidth="true"
       />
       <Input
         name="lastName"
@@ -28,6 +39,7 @@ const AddressForm = ({ type, address, onChange }) => {
         placeholder="Last Name"
         onChange={onChange}
         required="true"
+        fullWidth="true"
       />
       <Input
         name="address1"
@@ -35,6 +47,7 @@ const AddressForm = ({ type, address, onChange }) => {
         placeholder="Address Line 1"
         onChange={onChange}
         required="true"
+        fullWidth="true"
       />
       <Input
         name="address2"
@@ -42,35 +55,46 @@ const AddressForm = ({ type, address, onChange }) => {
         placeholder="Address Line 2 (optional)"
         onChange={onChange}
         required="false"
+        fullWidth="true"
       />
-      <Input
-        name="city"
-        value={address.city}
-        placeholder="City"
-        onChange={onChange}
-        required="true"
-      />
-      <Input
-        name="country"
-        value={address.country}
-        placeholder="Country"
-        onChange={onChange}
-        required="true"
-      />
-      <Input
-        name="state"
-        value={address.state}
-        placeholder="State"
-        onChange={onChange}
-        required="true"
-      />
-      <Input
-        name="postalCode"
-        value={address.postalCode}
-        placeholder="Postal Code"
-        onChange={onChange}
-        required="true"
-      />
+      <InputBlock>
+        <Input
+          name="city"
+          value={address.city}
+          placeholder="City"
+          onChange={onChange}
+          required="true"
+          fullWidth="true"
+        />
+        <SpaceBlock />
+        <Input
+          name="country"
+          value={address.country}
+          placeholder="Country"
+          onChange={onChange}
+          required="true"
+          fullWidth="true"
+        />
+      </InputBlock>
+      <InputBlock>
+        <Input
+          name="state"
+          value={address.state}
+          placeholder="State"
+          onChange={onChange}
+          required="true"
+          fullWidth="true"
+        />
+        <SpaceBlock />
+        <Input
+          name="postalCode"
+          value={address.postalCode}
+          placeholder="Postal Code"
+          onChange={onChange}
+          required="true"
+          fullWidth="true"
+        />
+      </InputBlock>
     </AddressFormBlock>
   );
 };

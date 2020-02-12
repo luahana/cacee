@@ -19,7 +19,6 @@ const StyledButton = styled.button`
   ${props =>
     props.checkoutBtn &&
     css`
-      margin-top: 1rem;
       padding-top: 1rem;
       padding-bottom: 1rem;
       width: 100%;
